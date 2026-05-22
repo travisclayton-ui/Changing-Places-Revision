@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changing Places — Year 9 Geography Quiz</title>
+  <style>
+    :root {
+      --bg:#f4f6f8; --surface:#ffffff; --surface2:#f8fafb; --text:#1f2937; --muted:#5b6470;
+      --primary:#0b5cab; --primary2:#0a7c66; --accent:#d97706; --border:#d7dde5;
+      --ok:#166534; --bad:#b91c1c; --shadow:0 10px 30px rgba(0,0,0,.08); --r:14px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+    header{background:linear-gradient(135deg,var(--primary),#1d4ed8);color:#fff;padding:28px 18px 22px}
+    header h1{font-size:1.95rem;margin-bottom:6px}
+    header p{max-width:940px;font-size:1rem;opacity:.92}
+    nav{display:flex;flex-wrap:wrap;gap:10px;padding:14px 16px;background:#fff;border-bottom:1px solid var(--border)}
+    nav a{text-decoration:none;color:#fff;background:var(--primary2);padding:7px 14px;border-radius:999px;font-size:.86rem;font-weight:700}
+    main{max-width:1120px;margin:0 auto;padding:20px 14px 56px}
+    .section-header{background:linear-gradient(90deg,var(--primary),#2563eb);color:#fff;padding:14px 18px;border-radius:12px 12px 0 0;margin-top:28px}
+    .section-header.alt{background:linear-gradient(90deg,var(--primary2),#0f766e)}
+    .section-header.warn{background:linear-gradient(90deg,#9a3412,var(--accent))}
+    .section-header h2{font-size:1.2rem}
+    .section-header p{font-size:.92rem;opacity:.92;margin-top:4px}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:0 0 var(--r) var(--r);box-shadow:var(--shadow);padding:18px}
+    .stimulus{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:18px}
+    .stimulus img{width:100%;height:auto;border-radius:8px;display:block;margin:6px auto}
+    .stimulus figcaption{font-size:.82rem;color:var(--muted);text-align:center;margin-top:6px}
+    .source-box{background:#fff8ed;border-left:4px solid var(--accent);padding:12px 14px;border-radius:0 8px 8px 0;margin-bottom:16px}
+    .q{padding:14px;border:1px solid var(--border);border-radius:12px;background:#fff;margin-bottom:12px}
+    .q h3{font-size:.98rem;margin-bottom:10px}
+    .q h3 span{display:inline-block;background:var(--primary);color:#fff;border-radius:7px;padding:2px 8px;font-size:.82rem;margin-right:8px}
+    .options label{display:block;padding:8px 10px;border:1px solid var(--border);border-radius:8px;margin:6px 0;background:#fff;cursor:pointer}
+    .options label:hover,.tf-row label:hover{background:#eef6ff}
+    .options input,.tf-row input{margin-right:7px}
+    .tf-row{display:flex;gap:10px}
+    .tf-row label{flex:1;border:1px solid var(--border);border-radius:8px;padding:9px 10px;text-align:center;font-weight:700;cursor:pointer;background:#fff}
+    .match-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .match-term{background:#ebf4ff;border:1px solid #c9defa;border-radius:8px;padding:8px 10px;font-weight:700;margin-bottom:8px}
+    .match-select{width:100%;padding:8px;border:1px solid var(--border);border-radius:8px;background:#fff;margin-bottom:8px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+    button{border:none;border-radius:10px;padding:12px 18px;font-weight:700;cursor:pointer}
+    .primary{background:var(--primary2);color:#fff}.secondary{background:#64748b;color:#fff}
+    .result{display:none;margin-top:20px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:18px}
+    .score{font-size:2.5rem;font-weight:800;color:var(--ok)} .grade{font-weight:800;margin:6px 0}
+    .fb-item{padding:6px 0;border-bottom:1px solid #dbe3ea;font-size:.92rem}
+    @media(max-width:740px){.two-col,.match-grid{grid-template-columns:1fr}header h1{font-size:1.55rem}}
+  </style>
+</head>
+<body>
+<header>
+  <h1>Changing Places — Year 9 Geography Quiz</h1>
+  <p>This PAT-style quiz focuses on megacities, urban growth, regional centres, where Australians live, push and pull factors, and Australia’s international migration. Use the sources carefully and choose the best answer for each question.</p>
+</header>
+<nav>
+  <a href="#s1">1 Megacities</a>
+  <a href="#s2">2 Megacity Problems</a>
+  <a href="#s3">3 Australia & Rural</a>
+  <a href="#s4">4 Regional Centres</a>
+  <a href="#s5">5 Population Map</a>
+  <a href="#s6">6 Push & Pull</a>
+  <a href="#s7">7 Urban Growth</a>
+  <a href="#s8">8 Migration</a>
+</nav>
+<main>
+
+<section id="s1">
+  <div class="section-header"><h2>Section 1 — Megacities in the developing world</h2><p>Use the photographs of Lagos and Mumbai to answer Questions 1–6.</p></div>
+  <div class="card">
+    <div class="two-col">
+      <figure class="stimulus"><img src="assets/megacity-1.jpg" alt="Busy street scene in Lagos with dense traffic and crowds"><figcaption>Fig 1a. Lagos street scene.</figcaption></figure>
+      <figure class="stimulus"><img src="assets/megacity-2.jpg" alt="Dense informal housing and polluted waterway in Mumbai"><figcaption>Fig 1b. Mumbai urban scene.</figcaption></figure>
+    </div>
+
+    <div class="q"><h3><span>Q1</span> What is a <strong>megacity</strong>?</h3><div class="options">
+      <label><input type="radio" name="q1" value="A">A. A city with more than 1 million people</label>
+      <label><input type="radio" name="q1" value="B">B. A city with more than 5 million people</label>
+      <label><input type="radio" name="q1" value="C">C. A city with more than 10 million people</label>
+      <label><input type="radio" name="q1" value="D">D. A city with more than 20 million people</label></div></div>
+
+    <div class="q"><h3><span>Q2</span> Which statement best explains why Lagos and Mumbai are considered megacities?</h3><div class="options">
+      <label><input type="radio" name="q2" value="A">A. They are both national capitals</label>
+      <label><input type="radio" name="q2" value="B">B. They each have very large populations and major urban growth</label>
+      <label><input type="radio" name="q2" value="C">C. They are both mostly rural</label>
+      <label><input type="radio" name="q2" value="D">D. They are both in Australia</label></div></div>
+
+    <div class="q"><h3><span>Q3</span> The Lagos photograph suggests which urban issue most clearly?</h3><div class="options">
+      <label><input type="radio" name="q3" value="A">A. Underpopulation</label>
+      <label><input type="radio" name="q3" value="B">B. Traffic congestion</label>
+      <label><input type="radio" name="q3" value="C">C. Snow damage</label>
+      <label><input type="radio" name="q3" value="D">D. Low density housing</label></div></div>
+
+    <div class="q"><h3><span>Q4</span> The Mumbai image most strongly suggests a problem with:</h3><div class="options">
+      <label><input type="radio" name="q4" value="A">A. Water pollution and poor-quality housing</label>
+      <label><input type="radio" name="q4" value="B">B. Too many national parks</label>
+      <label><input type="radio" name="q4" value="C">C. Too much farm machinery</label>
+      <label><input type="radio" name="q4" value="D">D. A lack of workers</label></div></div>
+
+    <div class="q"><h3><span>Q5</span> Megacities in the developing world often grow quickly because people move to them looking for work and services.</h3><div class="tf-row">
+      <label><input type="radio" name="q5" value="T">True</label><label><input type="radio" name="q5" value="F">False</label></div></div>
+
+    <div class="q"><h3><span>Q6</span> Which comparison is most accurate?</h3><div class="options">
+      <label><input type="radio" name="q6" value="A">A. Lagos and Mumbai face no infrastructure pressure</label>
+      <label><input type="radio" name="q6" value="B">B. Both cities may struggle to provide housing, transport and sanitation fast enough for their population growth</label>
+      <label><input type="radio" name="q6" value="C">C. Both cities are shrinking rapidly</label>
+      <label><input type="radio" name="q6" value="D">D. Both cities have lower density than rural towns</label></div></div>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="section-header alt"><h2>Section 2 — Problems faced by megacities</h2><p>Answer Questions 7–10 about challenges in large urban areas.</p></div>
+  <div class="card">
+    <div class="q"><h3><span>Q7</span> Which problem is most likely when population growth is faster than infrastructure growth?</h3><div class="options">
+      <label><input type="radio" name="q7" value="A">A. Empty roads and unused housing</label>
+      <label><input type="radio" name="q7" value="B">B. Pressure on transport, water, sewerage and housing</label>
+      <label><input type="radio" name="q7" value="C">C. Fewer jobs and fewer services by definition</label>
+      <label><input type="radio" name="q7" value="D">D. Less urban sprawl</label></div></div>
+
+    <div class="q"><h3><span>Q8</span> Informal settlements usually develop because:</h3><div class="options">
+      <label><input type="radio" name="q8" value="A">A. Governments require all new residents to build them</label>
+      <label><input type="radio" name="q8" value="B">B. Housing is unaffordable or unavailable for many new arrivals</label>
+      <label><input type="radio" name="q8" value="C">C. Rich people prefer temporary housing</label>
+      <label><input type="radio" name="q8" value="D">D. Public transport is too fast</label></div></div>
+
+    <div class="q"><h3><span>Q9</span> High levels of congestion can reduce quality of life in megacities.</h3><div class="tf-row"><label><input type="radio" name="q9" value="T">True</label><label><input type="radio" name="q9" value="F">False</label></div></div>
+
+    <div class="q"><h3><span>Q10</span> Which response is most likely to improve living conditions in a rapidly growing megacity?</h3><div class="options">
+      <label><input type="radio" name="q10" value="A">A. Stop building all transport links</label>
+      <label><input type="radio" name="q10" value="B">B. Expand housing, transport, sanitation and employment planning together</label>
+      <label><input type="radio" name="q10" value="C">C. Remove all local markets</label>
+      <label><input type="radio" name="q10" value="D">D. Move every resident to the countryside</label></div></div>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="section-header warn"><h2>Section 3 — Australia, cities and rural places</h2><p>Answer Questions 11–14 about differences between Australian cities and rural areas.</p></div>
+  <div class="card">
+    <div class="q"><h3><span>Q11</span> Compared with remote rural places, Australian major cities usually have:</h3><div class="options">
+      <label><input type="radio" name="q11" value="A">A. Fewer jobs and fewer services</label>
+      <label><input type="radio" name="q11" value="B">B. More access to universities, hospitals and public transport</label>
+      <label><input type="radio" name="q11" value="C">C. Lower housing pressure in every suburb</label>
+      <label><input type="radio" name="q11" value="D">D. No environmental problems</label></div></div>
+
+    <div class="q"><h3><span>Q12</span> Which is a likely advantage of living in a rural place?</h3><div class="options">
+      <label><input type="radio" name="q12" value="A">A. Greater access to every specialised service</label>
+      <label><input type="radio" name="q12" value="B">B. More open space and sometimes a quieter lifestyle</label>
+      <label><input type="radio" name="q12" value="C">C. Higher population density</label>
+      <label><input type="radio" name="q12" value="D">D. More international airports nearby</label></div></div>
+
+    <div class="q"><h3><span>Q13</span> Regional centres may attract people who want a balance between jobs and lifestyle.</h3><div class="tf-row"><label><input type="radio" name="q13" value="T">True</label><label><input type="radio" name="q13" value="F">False</label></div></div>
+
+    <div class="q"><h3><span>Q14</span> Which statement best explains why some Australians move from capital cities to regional centres?</h3><div class="options">
+      <label><input type="radio" name="q14" value="A">A. Regional centres always have larger CBDs than capitals</label>
+      <label><input type="radio" name="q14" value="B">B. They may offer more affordable housing, lifestyle appeal and improved services</label>
+      <label><input type="radio" name="q14" value="C">C. They do not have any commuting at all</label>
+      <label><input type="radio" name="q14" value="D">D. They are all mining camps</label></div></div>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="section-header"><h2>Section 4 — Fast-growing regional centres</h2><p>Use the chart to answer Questions 15–18.</p></div>
+  <div class="card">
+    <figure class="stimulus"><img src="assets/regional-growth-chart.png" alt="Chart showing components of population change by Australian capital city"><figcaption>Fig 4. Population change by Australian capital city. Use it to compare growth drivers.</figcaption></figure>
+
+    <div class="q"><h3><span>Q15</span> According to the chart, which capital cities appear to have the largest overall population increase?</h3><div class="options">
+      <label><input type="radio" name="q15" value="A">A. Sydney and Melbourne</label>
+      <label><input type="radio" name="q15" value="B">B. Hobart and Darwin</label>
+      <label><input type="radio" name="q15" value="C">C. Adelaide and Canberra</label>
+      <label><input type="radio" name="q15" value="D">D. Perth and Hobart only</label></div></div>
+
+    <div class="q"><h3><span>Q16</span> Which component contributes strongly to growth in several capital cities on the chart?</h3><div class="options">
+      <label><input type="radio" name="q16" value="A">A. Earthquakes</label>
+      <label><input type="radio" name="q16" value="B">B. Overseas migration</label>
+      <label><input type="radio" name="q16" value="C">C. Drought only</label>
+      <label><input type="radio" name="q16" value="D">D. Volcanic activity</label></div></div>
+
+    <div class="q"><h3><span>Q17</span> Internal migration is the movement of people within Australia.</h3><div class="tf-row"><label><input type="radio" name="q17" value="T">True</label><label><input type="radio" name="q17" value="F">False</label></div></div>
+
+    <div class="q"><h3><span>Q18</span> Why might some regional centres in Australia grow quickly?</h3><div class="options">
+      <label><input type="radio" name="q18" value="A">A. They have no connection to major roads or services</label>
+      <label><input type="radio" name="q18" value="B">B. They may offer jobs, lifestyle advantages and lower housing costs than capitals</label>
+      <label><input type="radio" name="q18" value="C">C. They ban all new housing</label>
+      <label><input type="radio" name="q18" value="D">D. They are always colder than cities</label></div></div>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="section-header alt"><h2>Section 5 — Where Australians live</h2><p>Use the population map to answer Questions 19–22.</p></div>
+  <div class="card">
+    <figure class="stimulus"><img src="assets/australia-population-map.png" alt="Map of Australia showing population density"><figcaption>Fig 5. Australia population density map.</figcaption></figure>
+
+    <div class="q"><h3><span>Q19</span> Which part of Australia has the highest population density overall?</h3><div class="options">
+      <label><input type="radio" name="q19" value="A">A. The interior desert regions</label>
+      <label><input type="radio" name="q19" value="B">B. Coastal areas, especially in the east and south-east</label>
+      <label><input type="radio" name="q19" value="C">C. The far north-west only</label>
+      <label><input type="radio" name="q19" value="D">D. All areas are evenly populated</label></div></div>
+
+    <div class="q"><h3><span>Q20</span> Why do fewer Australians live in the centre of the continent?</h3><div class="options">
+      <label><input type="radio" name="q20" value="A">A. It has more ports and sea trade</label>
+      <label><input type="radio" name="q20" value="B">B. It is generally drier, hotter and more remote from major services</label>
+      <label><input type="radio" name="q20" value="C">C. It has too many universities</label>
+      <label><input type="radio" name="q20" value="D">D. It has the highest rainfall in Australia</label></div></div>
+
+    <div class="q"><h3><span>Q21</span> Most Australians live close to the coast.</h3><div class="tf-row"><label><input type="radio" name="q21" value="T">True</label><label><input type="radio" name="q21" value="F">False</label></div></div>
+
+    <div class="q"><h3><span>Q22</span> Which explanation best matches the map?</h3><div class="options">
+      <label><input type="radio" name="q22" value="A">A. Population is highest where rainfall, jobs, transport and services are more favourable</label>
+      <label><input type="radio" name="q22" value="B">B. Australians avoid all coastal regions</label>
+      <label><input type="radio" name="q22" value="C">C. The map shows no relation between environment and settlement</label>
+      <label><input type="radio" name="q22" value="D">D. Remote areas are more crowded than capitals</label></div></div>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="section-header warn"><h2>Section 6 — Push and pull factors</h2><p>Read the case study and answer Questions 23–25.</p></div>
+  <div class="card">
+    <div class="source-box">
+      <p><strong>Case study:</strong> Riley lives in a small inland town in New South Wales. The local hospital has fewer services than before, several shops have closed, and there are limited job options after school. Riley is thinking about moving to a larger regional city or capital city where there are universities, more jobs, public transport and a wider choice of services.</p>
+    </div>
+
+    <div class="q"><h3><span>Q23</span> Which factor is a <strong>push</strong> factor in Riley’s town?</h3><div class="options">
+      <label><input type="radio" name="q23" value="A">A. More universities in the city</label>
+      <label><input type="radio" name="q23" value="B">B. Wider job choices in the city</label>
+      <label><input type="radio" name="q23" value="C">C. Limited local jobs and fewer services in the town</label>
+      <label><input type="radio" name="q23" value="D">D. Public transport in the city</label></div></div>
+
+    <div class="q"><h3><span>Q24</span> Which factor is a <strong>pull</strong> factor attracting Riley to the city?</h3><div class="options">
+      <label><input type="radio" name="q24" value="A">A. Fewer people</label>
+      <label><input type="radio" name="q24" value="B">B. More jobs, universities and services</label>
+      <label><input type="radio" name="q24" value="C">C. Fewer transport options</label>
+      <label><input type="radio" name="q24" value="D">D. Less housing demand everywhere</label></div></div>
+
+    <div class="q"><h3><span>Q25</span> Push and pull factors can help explain why people move from rural places to urban places.</h3><div class="tf-row"><label><input type="radio" name="q25" value="T">True</label><label><input type="radio" name="q25" value="F">False</label></div></div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="section-header"><h2>Section 7 — Growth of urban areas</h2><p>Use the cartoon to answer Questions 26–28.</p></div>
+  <div class="card">
+    <figure class="stimulus"><img src="assets/urban-growth-cartoon.png" alt="Cartoon showing urban expansion on the edge of a city in New South Wales"><figcaption>Fig 7. Urban expansion and changing land use on the edge of a city.</figcaption></figure>
+
+    <div class="q"><h3><span>Q26</span> What major change in land use is shown in the cartoon?</h3><div class="options">
+      <label><input type="radio" name="q26" value="A">A. Farmland changing into housing, roads and shops</label>
+      <label><input type="radio" name="q26" value="B">B. Suburbs changing into rainforest</label>
+      <label><input type="radio" name="q26" value="C">C. Beaches changing into mines</label>
+      <label><input type="radio" name="q26" value="D">D. Cities shrinking into villages</label></div></div>
+
+    <div class="q"><h3><span>Q27</span> Which problem linked to urban sprawl is shown most clearly?</h3><div class="options">
+      <label><input type="radio" name="q27" value="A">A. Less demand for roads</label>
+      <label><input type="radio" name="q27" value="B">B. Pressure on services and loss of open space</label>
+      <label><input type="radio" name="q27" value="C">C. Falling population growth</label>
+      <label><input type="radio" name="q27" value="D">D. Decreasing need for housing</label></div></div>
+
+    <div class="q"><h3><span>Q28</span> Good planning can reduce some negative effects of urban growth.</h3><div class="tf-row"><label><input type="radio" name="q28" value="T">True</label><label><input type="radio" name="q28" value="F">False</label></div></div>
+  </div>
+</section>
+
+<section id="s8">
+  <div class="section-header alt"><h2>Section 8 — Australia’s international migration</h2><p>Use the migration chart to answer Questions 29–30.</p></div>
+  <div class="card">
+    <figure class="stimulus"><img src="assets/net-overseas-migration.png" alt="Chart showing components of annual population change including net overseas migration"><figcaption>Fig 8. Components of annual population change in Australia.</figcaption></figure>
+
+    <div class="q"><h3><span>Q29</span> What does <strong>net overseas migration</strong> mean?</h3><div class="options">
+      <label><input type="radio" name="q29" value="A">A. The number of babies born each year</label>
+      <label><input type="radio" name="q29" value="B">B. The difference between people arriving from overseas and people leaving Australia to live overseas</label>
+      <label><input type="radio" name="q29" value="C">C. Movement between Sydney and Melbourne</label>
+      <label><input type="radio" name="q29" value="D">D. The total number of tourists</label></div></div>
+
+    <div class="q"><h3><span>Q30</span> If net overseas migration stays high into the future, which challenge is Australia most likely to face?</h3><div class="options">
+      <label><input type="radio" name="q30" value="A">A. Less demand for housing and transport</label>
+      <label><input type="radio" name="q30" value="B">B. Increased pressure on housing, infrastructure and services in growing cities</label>
+      <label><input type="radio" name="q30" value="C">C. Fewer people in every capital city</label>
+      <label><input type="radio" name="q30" value="D">D. No need for future planning</label></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <div class="actions">
+      <button class="primary" id="markBtn">Mark quiz</button>
+      <button class="secondary" id="resetBtn">Reset answers</button>
+    </div>
+    <div class="result" id="resultBox">
+      <h3>Your result</h3>
+      <div class="score" id="scoreText">0 / 30</div>
+      <div class="grade" id="gradeText">Grade: –</div>
+      <div id="percentText">Percentage: 0%</div>
+      <div id="fbList"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<script>
+const answers = {
+ q1:'C', q2:'B', q3:'B', q4:'A', q5:'T', q6:'B',
+ q7:'B', q8:'B', q9:'T', q10:'B',
+ q11:'B', q12:'B', q13:'T', q14:'B',
+ q15:'A', q16:'B', q17:'T', q18:'B',
+ q19:'B', q20:'B', q21:'T', q22:'A',
+ q23:'C', q24:'B', q25:'T',
+ q26:'A', q27:'B', q28:'T',
+ q29:'B', q30:'B'
+};
+function markQuiz(){
+ let score=0, feedback=[];
+ for(const [q,ans] of Object.entries(answers)){
+   const chosen = document.querySelector(`input[name="${q}"]:checked`);
+   if(!chosen){feedback.push(`${q.toUpperCase()}: no answer selected.`); continue;}
+   if(chosen.value===ans){score++; feedback.push(`${q.toUpperCase()}: correct.`);} else {feedback.push(`${q.toUpperCase()}: incorrect. Correct answer is ${ans}.`);}
+ }
+ const total = 30; const percent = Math.round(score/total*100);
+ let grade='D'; if(percent>=85) grade='A'; else if(percent>=70) grade='B'; else if(percent>=55) grade='C';
+ document.getElementById('scoreText').textContent=`${score} / ${total}`;
+ document.getElementById('gradeText').textContent=`Grade: ${grade}`;
+ document.getElementById('percentText').textContent=`Percentage: ${percent}%`;
+ const fb=document.getElementById('fbList'); fb.innerHTML='';
+ feedback.forEach(t=>{const d=document.createElement('div'); d.className='fb-item'; d.textContent=t; fb.appendChild(d);});
+ document.getElementById('resultBox').style.display='block';
+ }
+ function resetQuiz(){document.querySelectorAll('input[type="radio"]').forEach(i=>i.checked=false);document.getElementById('resultBox').style.display='none';}
+ document.getElementById('markBtn').addEventListener('click',markQuiz);
+ document.getElementById('resetBtn').addEventListener('click',resetQuiz);
+</script>
+</body>
+</html>
